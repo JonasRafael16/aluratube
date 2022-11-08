@@ -35,7 +35,7 @@ const StyleHeader = styled.div`
 img {
   width: 80px;
   height: 80px;
-  border-radius:50%;
+  border-radius: 50%;
 }
 .user-info {
   margin-top: 50px;
@@ -43,6 +43,7 @@ img {
   align-item: center;
   width: 100%;
   padding: 16px 32px;
+  gap: 16px;
 }
 `;
 
@@ -67,11 +68,11 @@ function TimeLine(props) {
   const playlistsNames = Object.keys(props.playlists)
   return (
     <StyledTimeline>
-      {playlistsNames.map(names => {
-        const videos = props.playlists[names]
+      {playlistsNames.map((playlistsName) => {
+        const videos = props.playlists[playlistsName];
         return (
           <section>
-            <h2>{playlistsNames}</h2>
+            <h2>{playlistsName}</h2>
             <div>
               {videos.map((video) => {
                 return (
