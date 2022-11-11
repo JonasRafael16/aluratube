@@ -7,10 +7,13 @@
 [![Next](https://img.shields.io/badge/next-v13.0.2-yellow)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/react-v18.2.0-orange)](https://reactjs.org/)
 
+<br />
+
 Project devoloped during the fifth edition the event **Imersão React**, from [Alura](https://www.alura.com.br).
 It's a video platform inspired by YouTube.
 With this project I was able to develop my skills with the front-end using React.
 
+<br />
 
 ## Functionalities
 
@@ -18,6 +21,7 @@ With this project I was able to develop my skills with the front-end using React
 - Dark mode
 - Video upload
 
+<br />
 
 ## Build With
 
