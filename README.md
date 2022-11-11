@@ -1,6 +1,6 @@
 # AluraTube
 
-![PingPong status](https://img.shields.io/pingpong/status/https://aluratube-jonasrafael16.vercel.app/)
+![Website](https://img.shields.io/website?down_color=red&down_message=down&up_color=gren&up_message=up&url=https%3A%2F%2Faluratube-jonasrafael16.vercel.app%2F)
 ![GitHub](https://img.shields.io/github/license/jonasrafael16/aluratube)
 
 [![Node](https://img.shields.io/badge/node-v18.12.1-green)](https://nodejs.org/en/)
