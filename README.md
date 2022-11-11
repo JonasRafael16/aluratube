@@ -1,5 +1,12 @@
 # AluraTube
 
+![PingPong status](https://img.shields.io/pingpong/status/https://aluratube-jonasrafael16.vercel.app/)
+![GitHub](https://img.shields.io/github/license/jonasrafael16/aluratube)
+
+[![Node](https://img.shields.io/badge/node-v18.12.1-green)](https://nodejs.org/en/)
+[![Next](https://img.shields.io/badge/next-v13.0.2-yellow)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/react-v18.2.0-orange)](https://reactjs.org/)
+
 Project devoloped during the fifth edition the event **Imersão React**, from [Alura](https://www.alura.com.br).
 It's a video platform inspired by YouTube.
 With this project I was able to develop my skills with the front-end using React.
