@@ -1,33 +1,10 @@
-import React from "react"
-import config from "../config.json"
+import React from "react";
 import styled from "styled-components"
+
+import config from "../config.json";
 import Menu from '../src/components/Menu'
-import { StyledTimeline } from '../src/components/Timeline'
-
-
-function HomePage() {
-  const styleHomePage = { //backgroundColor: "red"
-  }
-  const [filterValue, setSearchValue] = React.useState("")
-
-
-
-  return (
-    <>
-
-      <div style={{
-        display: "flex",
-        flexDirection: "column",
-        flex: 1,
-        // backgroundColor: "red",
-      }}>
-        <Menu filterValue={filterValue} setSearchValue={setSearchValue} />
-        <Header />
-        <TimeLine searchValue={filterValue} playlists={config.playlists} />
-      </div>
-    </>
-  )
-}
+import { StyledTimeline } from '../src/components/Timeline';
+import { videoService } from "../src/service/videoService";
 
 
 const StyledHeader = styled.div`
@@ -46,12 +23,51 @@ const StyledHeader = styled.div`
     }
 `;
 
+
 const StyledBanner = styled.div`
     background-color: #0F1F37;
     background-image: url(${({ bg }) => bg});
     /* background-image: url(${config.bg}); */
     height: 230px;
 `;
+
+function HomePage() {
+  const service = videoService()
+  const [filterValue, setSearchValue] = React.useState("")
+  const [playlists, setPlaylists] = React.useState({});
+
+  React.useEffect(() => {
+		service.getAllVideos()
+			.then((result) => {
+				const newPlaylists = { ...playlists }
+				result.data.forEach((video) => {
+					if (!newPlaylists[video.playlist]) {
+						newPlaylists[video.playlist] = []
+					}
+					newPlaylists[video.playlist].push(video)
+				})
+				setPlaylists(newPlaylists)
+			})
+
+	}, [])
+
+
+  return (
+    <>
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        flex: 1,
+      }}>
+        <Menu filterValue={filterValue} setSearchValue={setSearchValue} />
+        <Header />
+        <TimeLine searchValue={filterValue} playlists={playlists} >
+          Conteúdo
+          </TimeLine>
+      </div>
+    </>
+  )
+}
 
 function Header() {
   return (
