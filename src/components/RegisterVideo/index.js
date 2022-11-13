@@ -1,11 +1,5 @@
 import React, { useState } from "react";
 import { StyledRegisterVideo } from "./styles";
-<<<<<<< HEAD
-import { createClient } from "@supabase/supabase-js";
-import { RiVideoAddFill as AddIcon } from 'react-icons/ri';
-
-=======
->>>>>>> parent of b6e00c6 (feat: create database conection)
 
 function useForm(formProps) {
   const [videoValues, setVideoValues] = React.useState(formProps.initialValues)
@@ -35,31 +29,13 @@ export default function RegisterVideo() {
   return (
     <StyledRegisterVideo>
       <button className="add-video" onClick={() => setVisibleForm(true)}>
-        <AddIcon className="position-icon" />
+        {/* <AddIcon className="position-icon" /> */}
       </button>
 
       {visibleForm
         && (
           <form onSubmit={(event) => {
             event.preventDefault();
-<<<<<<< HEAD
-
-            supabase.from("videos").insert({
-              title: registrationForm.videoValues.title,
-              url: registrationForm.videoValues.url,
-              thumb: getUrlThum(registrationForm.videoValues.url),
-              playlist: registrationForm.videoValues.playlist,
-            })
-              .then((result) => {
-                alert("Video Inserido!")
-
-              })
-              .catch((error) => {
-                console.log(error);
-              })
-
-=======
->>>>>>> parent of b6e00c6 (feat: create database conection)
             setVisibleForm(false);
             registrationForm.clearForm()
           }}>

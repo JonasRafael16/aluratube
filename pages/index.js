@@ -10,23 +10,6 @@ function HomePage() {
   }
   const [filterValue, setSearchValue] = React.useState("")
 
-<<<<<<< HEAD
-  React.useEffect(() => {
-		service.getAllVideos()
-			.then((result) => {
-				const newPlaylists = { ...playlists }
-				result.data.forEach((video) => {
-					if (!newPlaylists[video.playlist]) {
-						newPlaylists[video.playlist] = []
-					}
-					newPlaylists[video.playlist].push(video)
-				})
-				setPlaylists(newPlaylists)
-			})
-
-	}, [])
-=======
->>>>>>> parent of b6e00c6 (feat: create database conection)
 
 
   return (
