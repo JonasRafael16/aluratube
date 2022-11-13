@@ -11,8 +11,10 @@ function HomePage() {
   const [playlists, setPlaylists] = React.useState({});
 
   React.useEffect(() => {
+		console.log('useEffect')
 		service.getAllVideos()
 			.then((result) => {
+				console.log(result.data)
 				const newPlaylists = { ...playlists }
 				result.data.forEach((video) => {
 					if (!newPlaylists[video.playlist]) {

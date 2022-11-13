@@ -1,7 +1,6 @@
 import React from "react";
 import { StyledRegisterVideo } from "./styles";
 import { createClient } from "@supabase/supabase-js";
-import { RiVideoAddFill as AddIcon } from 'react-icons/ri';
 
 
 function useForm(formProps) {
@@ -40,7 +39,7 @@ export default function RegisterVideo() {
   return (
     <StyledRegisterVideo>
       <button className="add-video" onClick={() => setVisibleForm(true)}>
-        <AddIcon className="position-icon" />
+        +
       </button>
 
       {visibleForm
@@ -52,11 +51,10 @@ export default function RegisterVideo() {
               title: registrationForm.videoValues.title,
               url: registrationForm.videoValues.url,
               thumb: getUrlThum(registrationForm.videoValues.url),
-              playlist: registrationForm.videoValues.playlist,
+              playlist: "jogos",
             })
               .then((result) => {
                 alert("Video Inserido!")
-
               })
               .catch((error) => {
                 console.log(error);
@@ -75,20 +73,12 @@ export default function RegisterVideo() {
                 name="title"
                 value={registrationForm.videoValues.title}
                 onChange={registrationForm.handleChange}
-                required
               />
               <input placeholder="URL"
                 name="url"
                 value={registrationForm.videoValues.url}
                 onChange={registrationForm.handleChange}
-                required
               />
-              <select name="playlist" onChange={registrationForm.handleChange} required>
-                <option value={"jogos"}>Jogos</option>
-                <option value={"filmes"}>Filmes</option>
-                <option value={"musicas"}>Músicas</option>
-                <option value={"tecnologia"}>Tecnologia</option>
-              </select>
               <button type="submit">
                 Cadastrar
               </button>
