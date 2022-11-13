@@ -28,7 +28,6 @@ const StyledMenu = styled.header`
 
 
 export default function Menu({ filterValue, setSearchValue }) {
-  console.log(filterValue)
   return (
     <StyledMenu>
       <div>
