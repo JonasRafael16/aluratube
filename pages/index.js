@@ -1,57 +1,49 @@
-import React from "react"
-import config from "../config.json"
-import styled from "styled-components"
+import React from "react";
+import config from "../config.json";
+import { StyledHeader, StyledBanner } from './styles';
 import Menu from '../src/components/Menu'
-import { StyledTimeline } from '../src/components/Timeline'
-
+import { StyledTimeline } from '../src/components/Timeline';
+import { videoService } from "../src/service/videoService";
 
 function HomePage() {
-  const styleHomePage = { //backgroundColor: "red"
-  }
+  const service = videoService()
   const [filterValue, setSearchValue] = React.useState("")
+  const [playlists, setPlaylists] = React.useState({});
 
+  React.useEffect(() => {
+		console.log('useEffect')
+		service.getAllVideos()
+			.then((result) => {
+				console.log(result.data)
+				const newPlaylists = { ...playlists }
+				result.data.forEach((video) => {
+					if (!newPlaylists[video.playlist]) {
+						newPlaylists[video.playlist] = []
+					}
+					newPlaylists[video.playlist].push(video)
+				})
+				setPlaylists(newPlaylists)
+			})
+
+	}, [])
 
 
   return (
     <>
-
       <div style={{
         display: "flex",
         flexDirection: "column",
         flex: 1,
-        // backgroundColor: "red",
       }}>
         <Menu filterValue={filterValue} setSearchValue={setSearchValue} />
         <Header />
-        <TimeLine searchValue={filterValue} playlists={config.playlists} />
+        <TimeLine searchValue={filterValue} playlists={playlists} >
+          Conteúdo
+          </TimeLine>
       </div>
     </>
   )
 }
-
-
-const StyledHeader = styled.div`
-    background-color: ${({ theme }) => theme.backgroundLevel1};
-    img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-    }
-    .user-info {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 16px 32px;
-        gap: 16px;
-    }
-`;
-
-const StyledBanner = styled.div`
-    background-color: #0F1F37;
-    background-image: url(${({ bg }) => bg});
-    /* background-image: url(${config.bg}); */
-    height: 230px;
-`;
 
 function Header() {
   return (
