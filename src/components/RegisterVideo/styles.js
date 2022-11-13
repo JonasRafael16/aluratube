@@ -15,6 +15,12 @@ export const StyledRegisterVideo = styled.div`
     z-index: 99;
     cursor: pointer;
   }
+
+  .position-icon {
+    margin-top: 5px;
+    margin-left: 3px;
+  }
+
   .close-modal {
     width: 25px;
     height: 25px;
@@ -26,6 +32,7 @@ export const StyledRegisterVideo = styled.div`
     border: none;
     cursor: pointer;
   }
+
   button[type="submit"] {
     background-color: red;
     padding: 8px 16px;
@@ -34,6 +41,7 @@ export const StyledRegisterVideo = styled.div`
     cursor: pointer;
     color: inherit;
   }
+
   form {
     width: 100%;
     padding: 5%;
@@ -56,7 +64,20 @@ export const StyledRegisterVideo = styled.div`
       padding-top: 40px;
     }
   }
+
   input {
+    border-radius: 2px;
+    border: 1px solid ${({ theme }) => theme.borderBase};
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    outline: none;
+    color: #222222;
+    background-color: #f9f9f9;
+    color: ${({ theme }) => theme.textColorBase};
+    background-color: ${({ theme }) => theme.backgroundBase};
+  }
+
+  select {
     border-radius: 2px;
     border: 1px solid ${({ theme }) => theme.borderBase};
     padding: 8px 10px;
