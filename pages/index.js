@@ -1,15 +1,16 @@
-import React from "react";
-import config from "../config.json";
-import { StyledHeader, StyledBanner } from './styles';
+import React from "react"
+import config from "../config.json"
+import styled from "styled-components"
 import Menu from '../src/components/Menu'
-import { StyledTimeline } from '../src/components/Timeline';
-import { videoService } from "../src/service/videoService";
+import { StyledTimeline } from '../src/components/Timeline'
+
 
 function HomePage() {
-  const service = videoService()
+  const styleHomePage = { //backgroundColor: "red"
+  }
   const [filterValue, setSearchValue] = React.useState("")
-  const [playlists, setPlaylists] = React.useState({});
 
+<<<<<<< HEAD
   React.useEffect(() => {
 		service.getAllVideos()
 			.then((result) => {
@@ -24,24 +25,50 @@ function HomePage() {
 			})
 
 	}, [])
+=======
+>>>>>>> parent of b6e00c6 (feat: create database conection)
 
 
   return (
     <>
+
       <div style={{
         display: "flex",
         flexDirection: "column",
         flex: 1,
+        // backgroundColor: "red",
       }}>
         <Menu filterValue={filterValue} setSearchValue={setSearchValue} />
         <Header />
-        <TimeLine searchValue={filterValue} playlists={playlists} >
-          Conteúdo
-          </TimeLine>
+        <TimeLine searchValue={filterValue} playlists={config.playlists} />
       </div>
     </>
   )
 }
+
+
+const StyledHeader = styled.div`
+    background-color: ${({ theme }) => theme.backgroundLevel1};
+    img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    .user-info {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 16px 32px;
+        gap: 16px;
+    }
+`;
+
+const StyledBanner = styled.div`
+    background-color: #0F1F37;
+    background-image: url(${({ bg }) => bg});
+    /* background-image: url(${config.bg}); */
+    height: 230px;
+`;
 
 function Header() {
   return (

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyledRegisterVideo } from "./styles";
+<<<<<<< HEAD
 import { createClient } from "@supabase/supabase-js";
 import { RiVideoAddFill as AddIcon } from 'react-icons/ri';
 
+=======
+>>>>>>> parent of b6e00c6 (feat: create database conection)
 
 function useForm(formProps) {
   const [videoValues, setVideoValues] = React.useState(formProps.initialValues)
@@ -23,17 +26,9 @@ function useForm(formProps) {
   };
 }
 
-const PROJECT_URL = "https://bagorjfquyvidaaxqswy.supabase.co";
-const PUBLIC_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJhZ29yamZxdXl2aWRhYXhxc3d5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjgxNjYwMDcsImV4cCI6MTk4Mzc0MjAwN30.ctwgbHyJyp44OZ44IBLJWPajmI8z8B2G6rBJ1QwCrKM";
-const supabase = createClient(PROJECT_URL, PUBLIC_KEY)
-
-function getUrlThum(videoUrl) {
-  return `https://img.youtube.com/vi/${videoUrl.split("v=")[1]}/hqdefault.jpg`;
-}
-
 export default function RegisterVideo() {
   const registrationForm = useForm({
-    initialValues: {}
+    initialValues: { title: "teste", url: "https://you..." }
   });
   const [visibleForm, setVisibleForm] = React.useState(false);
 
@@ -47,6 +42,7 @@ export default function RegisterVideo() {
         && (
           <form onSubmit={(event) => {
             event.preventDefault();
+<<<<<<< HEAD
 
             supabase.from("videos").insert({
               title: registrationForm.videoValues.title,
@@ -62,9 +58,12 @@ export default function RegisterVideo() {
                 console.log(error);
               })
 
+=======
+>>>>>>> parent of b6e00c6 (feat: create database conection)
             setVisibleForm(false);
             registrationForm.clearForm()
           }}>
+
             <div>
               <button
                 type="button"
